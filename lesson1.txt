@@ -1,0 +1,94 @@
+
+//interacting   with  mongo  database 
+
+//see the  database  present  in  my system
+show dbs
+
+
+// command  one   show  dbs 
+>_MONGOSH
+
+show  dbs
+APIDEVLOPS         8.00 KiB
+Authorization    304.00 KiB
+admin             40.00 KiB
+administration     8.00 KiB
+api-demo         168.00 KiB
+api-development   72.00 KiB
+authentication     8.00 KiB
+backend           48.00 KiB
+bank-api          80.00 KiB
+config           108.00 KiB
+ecomerce         124.00 KiB
+local             96.00 KiB
+mumo              56.00 KiB
+nutrition         72.00 KiB
+panel             72.00 KiB
+requets           40.00 KiB
+shop               8.00 KiB
+store              8.00 KiB
+test
+
+
+//by  default  u have   admin    config   local 
+
+//creating  a  new  database  /  switch    to  diferent  db 
+
+--use  database  name 
+---use  safaricom
+
+
+
+//to  create  a   collection  naviagate  to  the  database  first
+//command   to   create  a  collection   
+--db.createCollection users
+
+
+//see   database   collections  in  a    database
+--show  collections
+
+
+//create   a  new   document  /  record  /  database
+insertOne  =  inserts  a  single    record;
+
+db.(collection name).insertOne(pass  data  as  a  js object)
+
+db.safaricom.insertOne({
+    name: "samsung",
+    price: "34"
+})
+
+
+//see  data  present   in a  collection
+db.collectionname.find
+
+db.safaricom.find
+
+
+///to  create   multiple  records    at once
+//db.collectionname.insertMany([  array   of  objects ])
+
+
+//how  to  update  data 
+
+//view   data   based  on  filter/  condition
+--db.collectionname.find({  condition propert: value})
+
+db.products.find({category: 'Electronics'})
+db.safaricom.find({name: "samsung})
+
+//update   data in  a collection
+--db.collectionName.updateOne({name: "ANT MOUSE" , {$set:{category: "Electronics}}})
+
+$set   means  change     to  --  
+check   where   the  name  =  ANT Mouse  and  change   its    category  to  electronics 
+
+//delete   a   record  
+db.collectionName.deleteOne({property:value})
+//deleteOne for  1  record
+//deleteMany  for  multiple  records
+
+
+
+//completely   clear  a  collectionbd.collectionName.deleteMany({})
+//pass   empty   object 
